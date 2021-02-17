@@ -1,0 +1,314 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  //indexページ
+@mixin title-k {
+  position: relative;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: .1em;
+  text-align: center;
+  font-family:'ヒラギノ丸ゴ ProN';
+}
+@mixin title-k-before_title-k-after {
+  position: absolute;
+	top: 0;
+	content:'';
+	width: 5px;
+	height: 70%;
+	display: inline-block;
+}
+  .ranktitle {
+  @include title-k;
+}
+.ranktitle:before,.ranktitle:after { 
+@include title-k-before_title-k-after;
+	border-top: solid 5px#f2a154;
+	border-bottom: solid 5px #f2a154;
+}
+.ranktitle:before {
+	border-left: solid 5px #f2a154;
+	left: 0;
+}
+.ranktitle:after {
+	border-right: solid 5px #f2a154;
+	right: 0;
+}
+
+@mixin rank {
+  font-family: 'ヒラギノ丸ゴ ProN';
+  position: relative;
+  display: inline-block;
+  margin-left: 30px;
+  padding: 0.5rem 2rem 0.5rem 3rem;
+  color: #fff; 
+}
+
+@mixin rank-before {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  content: '';
+  border-width: 32px 30px 32px 0;
+  border-style: solid;
+}
+
+@mixin rank-after {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+//マッチングランキングタイトル
+.rank-match {
+    @include rank;
+    background: #fa4141;
+  }
+  
+  .rank-match:before {
+    @include rank-before;
+    border-color: transparent #fa4141 transparent transparent;
+  }
+  
+  .rank-match:after {
+    @include rank-after;
+  }
+//歌詞ランキングタイトル
+  .rank-lyric{
+    @include rank;
+    background-color: #1e90ff;
+  }
+
+  .rank-lyric:before{
+    @include rank-before;
+    border-color: transparent #1e90ff transparent transparent;
+  }
+
+  .rank-lyric:after{
+    @include rank-after;
+  }
+  //曲ランキングタイトル
+  .rank-melody{
+    @include rank;
+    background-color: green;
+  }
+
+  .rank-melody:before{
+    @include rank-before;
+    border-color: transparent green transparent transparent;
+  }
+
+  .rank-melody:after{
+    @include rank-after;
+  }
+  //歌声ランキングタイトル
+  .rank-song{
+    @include rank;
+    background-color: #800080;
+  }
+
+  .rank-song:before{
+    @include rank-before;
+    border-color: transparent #800080 transparent transparent;
+  }
+
+  .rank-song:after{
+    @include rank-after;
+  }
+  //映像ランキングタイトル
+  .rank-movie{
+    @include rank;
+    background-color: black;
+  }
+
+  .rank-movie:before{
+    @include rank-before;
+    border-color: transparent black transparent transparent;
+  }
+
+  .rank-movie:after{
+    @include rank-after;
+  }
+
+  //マッチング作品一覧
+.category-musics{
+  @include title-k;
+}
+.category-musics:before,.category-musics:after{
+  @include title-k-before_title-k-after;
+	border-top: solid 5px#fa4141;
+	border-bottom: solid 5px #fa4141;
+}
+.category-musics:before {
+	border-left: solid 5px #fa4141;
+	left: 0;
+}
+.category-musics:after {
+	border-right: solid 5px #fa4141;
+	right: 0;
+}
+  //歌詞一覧
+.category-lyrics{
+  @include title-k;
+}
+.category-lyrics:before,.category-lyrics:after{
+  @include title-k-before_title-k-after;
+	border-top: solid 5px#1e90ff;
+	border-bottom: solid 5px #1e90ff;
+}
+.category-lyrics:before {
+	border-left: solid 5px #1e90ff;
+	left: 0;
+}
+.category-lyrics:after {
+	border-right: solid 5px #1e90ff;
+	right: 0;
+}
+//曲一覧
+.category-melodys{
+  @include title-k;
+}
+.category-melodys:before,.category-melodys:after{
+  @include title-k-before_title-k-after;
+	border-top: solid 5px green;
+	border-bottom: solid 5px green;
+}
+.category-melodys:before {
+	border-left: solid 5px green;
+	left: 0;
+}
+.category-melodys:after {
+	border-right: solid 5px green;
+	right: 0;
+}
+//歌声一覧
+.category-songs{
+  @include title-k;
+}
+.category-songs:before,.category-songs:after{
+  @include title-k-before_title-k-after;
+	border-top: solid 5px purple;
+	border-bottom: solid 5px purple;
+}
+.category-songs:before {
+	border-left: solid 5px purple;
+	left: 0;
+}
+.category-songs:after {
+	border-right: solid 5px purple;
+	right: 0;
+}
+//映像一覧
+.category-movies{
+  @include title-k;
+}
+.category-movies:before,.category-movies:after{
+  @include title-k-before_title-k-after;
+	border-top: solid 5px #696969;
+	border-bottom: solid 5px #696969;
+}
+.category-movies:before {
+	border-left: solid 5px #696969;
+	left: 0;
+}
+.category-movies:after {
+	border-right: solid 5px #696969;
+	right: 0;
+}
+//マッチング投稿ページ
+@mixin formtitle-category {
+  position: relative;
+  padding: 1.5rem;
+  padding-bottom: 00.5rem;
+  text-align: center;
+  font-family:'ヒラギノ丸ゴ ProN';
+}
+@mixin formtitle {
+  position: relative;
+  text-align: center;
+  font-family:'ヒラギノ丸ゴ ProN';
+}
+@mixin formtitle-category-before {
+  position: absolute;
+  bottom: -15px;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 5px;
+  content: '';
+  border-radius: 3px;
+}
+.formtitle-match {
+  @include formtitle-category;
+}
+
+.formtitle2-match {
+  @include formtitle;
+}
+
+.formtitle2-match:before {
+  @include formtitle-category-before;
+  background: #fa4141;
+}
+//歌詞投稿ページ
+.formtitle-lyrics {
+  @include formtitle-category;
+}
+
+.formtitle2-lyrics {
+  @include formtitle;
+}
+
+.formtitle2-lyrics:before {
+  @include formtitle-category-before;
+  background-color: #1e90ff;
+}
+//作曲投稿ページ
+.formtitle-melodys {
+  @include formtitle-category;
+}
+
+.formtitle2-melodys {
+  @include formtitle;
+}
+
+.formtitle2-melodys:before {
+  @include formtitle-category-before;
+  background-color: green;
+}
+//歌声投稿ページ
+.formtitle-songs {
+  @include formtitle-category;
+}
+
+.formtitle2-songs {
+  @include formtitle;
+}
+
+.formtitle2-songs:before {
+  @include formtitle-category-before;
+  background-color: purple;
+}
+//映像渡航ページ
+.formtitle-movies {
+  @include formtitle-category;
+}
+
+.formtitle2-movies {
+  @include formtitle;
+}
+
+.formtitle2-movies:before {
+  @include formtitle-category-before;
+  background-color: #696969;
+}

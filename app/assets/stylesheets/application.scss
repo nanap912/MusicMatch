@@ -1,0 +1,24 @@
+/*
+ *= require_tree .
+ *= require_self
+
+ */
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+ * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    background-color: #f7f6e7;
+  }
+
+  .navbar-brand {
+    background: url("logo.png") no-repeat left center;
+    background-size: contain;
+    height: 55px;
+    width: 100px;
+  }
+

@@ -1,0 +1,88 @@
+
+<% if @category=="musics" %>
+<h1 class="formtitle-match">投稿フォーム</h1>
+<h3 class="formtitle2-match">マッチング作品</h3>
+    <%= form_for @post do |f| %>
+        <div class="field">
+            <%= f.label :タイトル %>
+                <%= f.text_field :title, :size => 50 %>
+            <%= f.label :マッチングしたユーザー %>
+                <%= f.text_field :matchuser, :size => 50 %>
+            <%= f.label :歌詞 %> 
+                <%= f.text_field :body, :size => 1000 %>
+            <%= f.label :動画ファイル %>
+                <%= f.file_field :video %>
+            <%= f.label :音声ファイル %>
+                <%= f.file_field :audio %>
+        
+                </div>
+            <%= f.hidden_field :category, :value => "musics" %>
+        <%= f.submit "投稿する" %>
+    <% end %>
+    <%= link_to "投稿一覧に戻る", posts_index_path %>
+
+<% elsif @category=="lyric" %>
+    <h1 class="formtitle-lyrics">投稿フォーム</h1>
+    <h3 class="formtitle2-lyrics">歌詞</h3>
+    <%= form_for @post do |f| %>
+        <div class="field">
+            <%= f.label :タイトル %>
+                <%= f.text_field :lyrictitle, :size => 50 %>
+            <%= f.label :歌詞 %>
+                <%= f.text_field :lyricbody, :size => 1000 %>
+                </div>
+                <%= f.hidden_field :category, :value => "lyric" %>
+        <%= f.submit "投稿する" %>
+    <% end %>
+    <%= link_to "投稿一覧に戻る", posts_index_path %>
+
+<% elsif @category=="melody" %>
+    <h1 class="formtitle-melodys">投稿フォーム</h1>
+    <h3 class="formtitle2-melodys">作曲</h3>
+    <%= form_for @post do |f| %>
+        <div class="field">
+            <%= f.label :タイトル %>
+                <%= f.text_field :melodytitle, :size => 50 %>
+            <%= f.label :音声ファイル %>
+                    <%= f.file_field :audio %>
+        </div>
+        <%= f.hidden_field :category, :value => "melody" %>
+        <%= f.submit "投稿する" %>
+    <% end %>
+    <%= link_to "投稿一覧に戻る", posts_index_path %>
+    
+<% elsif @category=="song" %>
+    <h1 class="formtitle-songs">投稿フォーム</h1>
+    <h3 class="formtitle2-songs">歌声</h3>
+    <%= form_for @post do |f| %>
+        <div class="field">
+            <%= f.label :タイトル %>
+                <%= f.text_field :songtitle, :size => 50%>
+            <%= f.label :音声ファイル %>
+                <%= f.file_field :audio %>
+        </div>
+        <%= f.hidden_field :category, :value => "song" %>
+        <%= f.submit "投稿する" %>
+    <% end %>
+    <%= link_to "投稿一覧に戻る", posts_index_path %>
+
+<% elsif @category=="movie" %>
+    <h1 class="formtitle-movies">投稿フォーム</h1>
+    <h3 class="formtitle2-movies">映像・アニメーション</h3>
+    <%= form_for @post do |f| %>
+        <div class="field">
+        <%= f.label :タイトル %>
+            <%= f.text_field :movietitle, :size => 50 %>
+        <%= f.label :動画ファイル %>
+            <%= f.file_field :video %>
+        </div>
+        <%= f.hidden_field :category, :value => "movie" %>
+        <%= f.submit "投稿する" %>
+    <% end %>
+    <%= link_to "投稿一覧に戻る", posts_index_path %>
+
+<%end%>
+
+<footer>
+  <small>© 2020 石田七海</small>
+</footer>

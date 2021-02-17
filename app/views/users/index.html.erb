@@ -1,0 +1,47 @@
+<h1>DM</h1>
+<h2>ユーザー一覧ページ</h2>
+
+<% if user_signed_in? %>
+    <h2><%= current_user.name %>でログインしています</h2> 
+    <%= link_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
+
+
+    <% number = 1%>
+    <div class="flex">
+        <% @users.each do |u| %>
+        <div class="user-in">
+            <p>プロフィール No.<%= number %></p>
+            <p><%= u.name %>さん</p>
+            <p><%= link_to 'ユーザーページへ', user_path(u.id) %></p>
+        </div>
+        <% number += 1 %>
+        <% end %>
+    </div>
+
+<% else %>
+  <%= link_to "SignUp", new_user_registration_path %>
+  <br>
+  <%= link_to "SignIn", new_user_session_path %>
+<% end %>
+
+<style>
+.signOutButton{
+    text-decoration:none;
+    display:inline-block;
+    border:3px solid royalblue;
+    background-color:aliceblue;
+    padding:5px;
+}
+.flex{
+    display:flex;
+    flex-wrap:wrap;    
+}
+.user-in{
+    display:block;
+    width:300px;
+    text-align:center;
+    border:1px solid darkgray;
+    background-color:gainsboro;
+    flex-shrink: 0;
+}
+</style>

@@ -1,0 +1,143 @@
+<h1 class="ranktitle">いいねランキングTOP3</h1>
+
+<h2 class="rank-match">マッチング作品</h2>
+ <div class="rank_posts">
+    <% @rank_musics.each do |t| %>
+            <h5><%= t.title%></h5>
+            <%= t.matchuser%>
+              <p><%= t.body.truncate(30)%></p>
+              <%=  video_tag t.video_url  ,height: "60%", width: "60%",:controls => true if t.video?%><br>
+              <%= audio_tag t.audio_url, :controls => true if t.audio? %><br>
+              <a href="/users/ <%= t.user.id %>"><%= t.user.name %></a>
+
+              <% if user_signed_in? %>
+              <% if current_user.already_liked?(t) %>
+                  <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                    <i class="far fa-star"></i><%= t.likes.count %>
+                  <% end %>
+              <% else %>
+                  <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                    <i class="far fa-star"></i><%= t.likes.count %>
+                  <% end %>
+              <% end %>
+            <% else %>
+            <i class="far fa-star"></i><%= t.likes.count %>
+          <% end %>
+              <%= t.created_at.to_s(:datetime_jp) %>
+              <%= link_to "詳細へ", post_path(t.id),class:"card-link" %>
+              <%= link_to "編集する", edit_post_path(t.id) %>
+              <%= button_to "削除する", post_path(t.id), method: :delete %>
+      <% end %>
+</div>
+
+  <h2 class="rank-lyric">歌詞</h2>
+  <div class="rank_posts">
+   <% @rank_lyrics.each do |t| %>
+           <h5><%= t.lyrictitle%></h5>
+             <p><%= t.lyricbody.truncate(30) %></p>
+             <a href="/users/ <%= t.user.id %>"><%= t.user.name %></a>
+
+             <% if user_signed_in? %>
+             <% if current_user.already_liked?(t) %>
+                 <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                   <i class="far fa-star"></i><%= t.likes.count %>
+                 <% end %>
+             <% else %>
+                 <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                   <i class="far fa-star"></i><%= t.likes.count %>
+                 <% end %>
+             <% end %>
+           <% else %>
+           <i class="far fa-star"></i><%= t.likes.count %>
+         <% end %>
+             <%= t.created_at.to_s(:datetime_jp) %>
+             <%= link_to "詳細へ", post_path(t.id),class:"card-link" %>
+             <%= link_to "編集する", edit_post_path(t.id) %>
+             <%= button_to "削除する", post_path(t.id), method: :delete %>
+     <% end %>
+</div>
+
+<h2 class="rank-melody">作曲</h2>
+<div class="rank_posts">
+ <% @rank_melodys.each do |t| %>
+         <h5><%= t.melodytitle%></h5>
+           <%= audio_tag t.audio_url, :controls => true if t.audio? %><br>
+           <a href="/users/ <%= t.user.id %>"><%= t.user.name %></a>
+
+           <% if user_signed_in? %>
+           <% if current_user.already_liked?(t) %>
+               <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                 <i class="far fa-star"></i><%= t.likes.count %>
+               <% end %>
+           <% else %>
+               <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                 <i class="far fa-star"></i><%= t.likes.count %>
+               <% end %>
+           <% end %>
+         <% else %>
+         <i class="far fa-star"></i><%= t.likes.count %>
+       <% end %>
+           <%= t.created_at.to_s(:datetime_jp) %>
+           <%= link_to "詳細へ", post_path(t.id),class:"card-link" %>
+           <%= link_to "編集する", edit_post_path(t.id) %>
+           <%= button_to "削除する", post_path(t.id), method: :delete %>
+   <% end %>
+</div>
+
+<h2 class="rank-song">歌声</h2>
+<div class="rank_posts">
+ <% @rank_songs.each do |t| %>
+         <h5"><%= t.songtitle%></h5>
+           <%= audio_tag t.audio_url, :controls => true if t.audio? %><br>
+           <a href="/users/ <%= t.user.id %>"><%= t.user.name %></a>
+
+           <% if user_signed_in? %>
+           <% if current_user.already_liked?(t) %>
+               <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                 <i class="far fa-star"></i><%= t.likes.count %>
+               <% end %>
+           <% else %>
+               <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                 <i class="far fa-star"></i><%= t.likes.count %>
+               <% end %>
+           <% end %>
+         <% else %>
+         <i class="far fa-star"></i><%= t.likes.count %>
+       <% end %>
+           <%= t.created_at.to_s(:datetime_jp) %>
+           <%= link_to "詳細へ", post_path(t.id),class:"card-link" %>
+           <%= link_to "編集する", edit_post_path(t.id) %>
+           <%= button_to "削除する", post_path(t.id), method: :delete %>
+   <% end %>
+</div>
+
+<h2 class="rank-movie">映像・アニメーション</h2>
+<div class="rank_posts">
+ <% @rank_movies.each do |t| %>
+    <h5><%= t.movietitle%></h5>
+      <%=  video_tag t.video_url  ,height: "60%", width: "60%",:controls => true if t.video?%><br>
+      <a href="/users/ <%= t.user.id %>"><%= t.user.name %></a>
+
+           <% if user_signed_in? %>
+           <% if current_user.already_liked?(t) %>
+               <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                 <i class="far fa-star"></i><%= t.likes.count %>
+               <% end %>
+           <% else %>
+               <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                 <i class="far fa-star"></i><%= t.likes.count %>
+               <% end %>
+           <% end %>
+         <% else %>
+         <i class="far fa-star"></i><%= t.likes.count %>
+       <% end %>
+           <%= t.created_at.to_s(:datetime_jp) %>
+           <%= link_to "詳細へ", post_path(t.id),class:"card-link" %>
+           <%= link_to "編集する", edit_post_path(t.id) %>
+           <%= button_to "削除する", post_path(t.id), method: :delete %>
+   <% end %>
+</div>
+
+<footer>
+  <small>© 2020 石田七海</small>
+</footer>

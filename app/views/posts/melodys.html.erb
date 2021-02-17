@@ -1,0 +1,34 @@
+
+<h1 class="category-melodys">作曲</h1>
+<div class="posts-container">
+    <% @melodys.each do |t| %>
+      <div class="post">
+          <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
+          <%= t.melodytitle%><br>
+          <%= t.melodybody %><br>
+          <%= audio_tag t.audio_url, :controls => true if t.audio? %><br>
+        
+      <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+              <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                <i class="far fa-star"></i><%= t.likes.count %>
+              <% end %>
+          <% else %>
+              <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                <i class="far fa-star"></i><%= t.likes.count %>
+              <% end %>
+          <% end %>
+        <% else %>
+        <i class="far fa-star"></i><%= t.likes.count %>
+      <% end %>
+          <%= t.created_at.to_s(:datetime_jp) %>
+          <%= link_to "詳細へ", post_path(t.id) %>
+          <%= link_to "編集する", edit_post_path(t.id) %>
+          <%= button_to "削除する", post_path(t.id), method: :delete %>
+      </div>
+  <% end %>
+</div>
+
+<footer>
+  <small>© 2020 石田七海</small>
+</footer>
