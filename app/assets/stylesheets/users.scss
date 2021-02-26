@@ -1,3 +1,86 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .login{
+    min-height: 100%;
+    width: 100%;
+    text-align: center;
+    font-family:'ヒラギノ丸ゴ ProN';
+}
+.singup{
+    font-family:'ヒラギノ丸ゴ ProN';
+    text-align: center;
+}
+
+.edit-prf{
+    font-family:'ヒラギノ丸ゴ ProN';
+    text-align: center;   
+    padding-top: 100px;
+}
+.edit-pass{
+  font-family:'ヒラギノ丸ゴ ProN';
+  text-align: center;
+}
+.mypage-title{
+  font-family: 'Arial Black';
+  font-weight: bold;
+  font-size: 70px;
+  color: rgba(0, 0, 0, 0);
+  text-shadow: 3px 3px 0 whitesmoke;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 1px #888;
+  padding: 0 0 10px; 
+}
+.mypage{
+    font-family:'ヒラギノ丸ゴ ProN';
+    text-align: center;  
+    width: 100%;
+    background-color: #f2a154;
+    border-bottom-left-radius: 350px;
+    border-bottom-right-radius: 350px;
+}
+#mycard{
+    border-top-left-radius: 350px;
+    border-top-right-radius: 350px;
+}
+.userformtitle{
+    position: relative;
+    padding-left: 1.2em;/*アイコン分のスペース*/
+    line-height: 1.4;
+    font-family:'ヒラギノ丸ゴ ProN';
+ }
+ .userformtitle:before {
+   font-family: "Font Awesome 5 Free";
+   content: "\f00c";/*アイコンのユニコード*/
+   font-weight: 900;
+   position: absolute;/*絶対位置*/
+   left: 0;/*アイコンの位置*/
+   top: 1;/*アイコンの位置*/
+   font-weight: 900;
+   text-align: center;
+   color: #314e52;
+ }
+
+ .userall {
+    text-align: center;
+    margin: 20px;
+  }
+  .useralltitle {
+    text-align: center;
+    font-family:'ヒラギノ丸ゴ ProN';
+    font-weight:bold;
+    border-radius:10px;
+    background:linear-gradient(transparent 50%,hotpink);
+  }
+ .outbtn{
+     text-align: center;
+ }
+
+ .a{
+  padding-top: 100px;
+ }

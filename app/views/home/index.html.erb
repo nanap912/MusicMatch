@@ -2,10 +2,69 @@
 <div class="jumbotron jumbotron-fluid">
    <h1 class="display-1">MusicMatch</h1>
    <p class="lead">"クリエイティブ"に生きる</p>
-
+   <a class="btn btn-primary btn-lg btn btn-info" href="#about" role="button">About Service</a>
 </div>
-<div class="about">
+<div class="about" id="about">
+   <h1 class="abouttitle">About Service</h1>
+   <div class="aboutartical">
+      <p>「曲を作りたいけど作曲の知識がない」「自分を表現する場が欲しい」「クリエイティブな事に挑戦してみたい」</p>
+      <p>そんな人達をマッチングしてひとつの音楽作品を生み出すサービスです。</p>
+   </div>
 </div>
 
+<div class="card-deck">
+  <div class="card col-xs-12">
+    <%= image_tag 'lyric.jpg' ,class:"bd-placeholder-img card-img-top ", width:"100%" ,height:"200" ,preserveAspectRatio:"xMidYMid slice" ,focusable:"false" ,role:"img" %>
+    <div class="card-body">
+      <h5 class="card-title">歌詞</h5>
+      <p class="card-text">言葉で自由に表現。あなたが書いた歌詞を投稿できます。</p>
+    </div>
+  </div>
+  <div class="card col-xs-12">
+  <%= image_tag 'melody.jpg' ,class:"bd-placeholder-img card-img-top ", width:"100%" ,height:"200" ,preserveAspectRatio:"xMidYMid slice" ,focusable:"false" ,role:"img" %>
+    <div class="card-body">
+      <h5 class="card-title">作曲音源</h5>
+      <p class="card-text">音楽にはメロディーが不可欠。あなたが作曲した音源を投稿出来ます。</p>
+    </div>
+  </div>
+  <div class="card col-xs-12">
+  <%= image_tag 'musics.jpg' ,class:"bd-placeholder-img card-img-top ", width:"100%" ,height:"200" ,preserveAspectRatio:"xMidYMid slice" ,focusable:"false" ,role:"img" %>
+    <div class="card-body">
+      <h5 class="card-title">マッチング作品</h5>
+      <p class="card-text">ここからヒットソングが生まれる。マッチング後、完成した作品を投稿できます。</p>
+    </div>
+  </div>
+  <div class="card col-xs-12">
+  <%= image_tag 'song.jpg' ,class:"bd-placeholder-img card-img-top ", width:"100%" ,height:"200" ,preserveAspectRatio:"xMidYMid slice" ,focusable:"false" ,role:"img" %>
+    <div class="card-body">
+      <h5 class="card-title">歌声音源</h5>
+      <p class="card-text">音楽を彩るのは歌声。あなたの歌唱音源を投稿できます。</p>
+    </div>
+  </div>
+  <div class="card col-xs-12">
+  <%= image_tag 'movie.jpg' ,class:"bd-placeholder-img card-img-top ", width:"100%" ,height:"200" ,preserveAspectRatio:"xMidYMid slice" ,focusable:"false" ,role:"img" %>
+    <div class="card-body">
+      <h5 class="card-title">映像・アニメーション</h5>
+      <p class="card-text">音楽の世界観。あなたが製作した映像が投稿できます。</p>
+    </div>
+  </div>
+</div>
 
+<div class="aboutartical2">
+  <p>各カテゴリーは、気軽に見れる投稿サイトにもなっています。</p>
+  <p>投稿者だけでなく、リスナーとしても楽しめます。</p>
+  <p>"バズる"作品が生まれる瞬間を目撃するのは、あなたかもしれません。</p>
+</div>
+
+<div class="guide">
+  <div class="jumbotron2 jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">さぁ、扉を開けよう</h1>
+      <div class="button">
+        <a class="btn btn-primary btn-lg btn btn-danger" href="/users/sign_up" role="button">新規登録</a>
+        <a class="btn btn-primary btn-lg btn btn-info" href="/users/sign_in" role="button">ログイン</a>
+      </div>
+    </div>
+  </div>
+</div>
 

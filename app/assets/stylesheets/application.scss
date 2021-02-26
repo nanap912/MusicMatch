@@ -12,9 +12,14 @@
   }
 
   body{
-    background-color: #f7f6e7;
+    background-color: ghostwhite;
   }
+  header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 
+  }
   .navbar-brand {
     background: url("logo.png") no-repeat left center;
     background-size: contain;
@@ -22,3 +27,15 @@
     width: 100px;
   }
 
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #343a40;
+    font-size: 15px;
+    color: #fff;
+  }
+  main{
+    min-height: 95vh;
+  }

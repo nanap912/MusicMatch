@@ -1,14 +1,102 @@
 
-<h1>MyMusics</h1>
-<h3>投稿編集</h3>
+<h1 class="edit-title"><span class="marker8">投稿編集</span></h1>
+<% if @post.category == "musics"%>
 <%= form_for @post do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, :size => 140 %>
-    <%= f.label :body %>
-    <%= f.text_field :body, :size => 1000 %> 
-    <%= f.submit "編集する" %>
-  <% end %>
+  <div class="field">
+  <div class="form-group">
+      <label for="title">タイトル</label>
+      <%= f.text_field :title, class:"form-control",:size => 50 %>
+  </div>
+  <div class="form-group">
+      <label for="matchuser">マッチングしたユーザー</label>
+          <%= f.text_field :matchuser,class:"form-control",:size => 50 %>
+  </div>
+  <div class="form-group">
+      <label for="lyric">歌詞</label> 
+          <%= f.text_area :body, class:"form-control"%>
+  </div>
+  <div class="form-group">
+      <label for="video">動画ファイル</label>
+          <%= f.file_field :video ,class:"form-control-file"%>
+  </div>
+  <div class="form-group">
+      <label for="audio">音声ファイル</label>
+          <%= f.file_field :audio ,class:"form-control-file"%>
+  </div>
 
-<footer>
-  <small>© 2020 石田七海</small>
-</footer>
+</div>
+<div class="submit">
+<%= f.submit "編集する" ,class:"btn btn-primary btn-lg btn btn-success" %>
+</div>
+<% end %>
+
+<% elsif @post.category == "lyric" %>
+  <%= form_for @post do |f| %>
+    <div class="field">
+    <div class="form-group">
+        <label for="title">タイトル</label>
+        <%= f.text_field :lyrictitle, class:"form-control",:size => 50 %>
+    </div>
+    <div class="form-group">
+        <label for="lyric">歌詞</label> 
+            <%= f.text_area :lyricbody, class:"form-control"%>
+    </div>
+  </div>
+  <div class="submit">
+  <%= f.submit "編集する" ,class:"btn btn-primary btn-lg btn btn-success" %>
+  </div>
+<% end %>
+
+<% elsif @post.category == "melody" %>
+  <%= form_for @post do |f| %>
+    <div class="field">
+    <div class="form-group">
+        <label for="title">タイトル</label>
+        <%= f.text_field :melodytitle, class:"form-control",:size => 50 %>
+    </div>
+    <div class="form-group">
+    <label for="audio">音声ファイル</label>
+        <%= f.file_field :audio ,class:"form-control-file"%>
+    </div>
+  </div>
+  <div class="submit">
+  <%= f.submit "編集する" ,class:"btn btn-primary btn-lg btn btn-success" %>
+  </div>
+<% end %>
+
+<% elsif @post.category == "song"%>
+<%= form_for @post do |f| %>
+  <div class="field">
+  <div class="form-group">
+      <label for="title">タイトル</label>
+      <%= f.text_field :songtitle, class:"form-control",:size => 50 %>
+  </div>
+  <div class="form-group">
+      <label for="audio">音声ファイル</label>
+          <%= f.file_field :audio ,class:"form-control-file"%>
+  </div>
+
+</div>
+<div class="submit">
+<%= f.submit "編集する" ,class:"btn btn-primary btn-lg btn btn-success" %>
+</div>
+<% end %>
+
+<% elsif @post.category == "movie"%>
+<%= form_for @post do |f| %>
+  <div class="field">
+  <div class="form-group">
+      <label for="title">タイトル</label>
+      <%= f.text_field :movietitle, class:"form-control",:size => 50 %>
+  </div>
+  <div class="form-group">
+      <label for="video">動画ファイル</label>
+          <%= f.file_field :video ,class:"form-control-file"%>
+  </div>
+
+</div>
+<div class="submit">
+<%= f.submit "編集する" ,class:"btn btn-primary btn-lg btn btn-success" %>
+</div>
+<% end %>
+<% end %>

@@ -1,47 +1,36 @@
-<h1>DM</h1>
-<h2>ユーザー一覧ページ</h2>
+<div class="a">
+<h1 class="userall"><span class="useralltitle">ユーザー一覧</span></h1>
 
 <% if user_signed_in? %>
-    <h2><%= current_user.name %>でログインしています</h2> 
-    <%= link_to "SignOut", destroy_user_session_path, :method => :delete, class:"signOutButton" %>
-
-
-    <% number = 1%>
-    <div class="flex">
-        <% @users.each do |u| %>
-        <div class="user-in">
-            <p>プロフィール No.<%= number %></p>
-            <p><%= u.name %>さん</p>
-            <p><%= link_to 'ユーザーページへ', user_path(u.id) %></p>
-        </div>
-        <% number += 1 %>
-        <% end %>
+    <h3 class="text-muted"><%= current_user.name %>でログインしています</h3> 
+    <div class="outbtn">
+        <%= link_to "ログアウト", destroy_user_session_path, :method => :delete, class:"btn btn-primary btーsm" %>
     </div>
 
-<% else %>
-  <%= link_to "SignUp", new_user_registration_path %>
-  <br>
-  <%= link_to "SignIn", new_user_session_path %>
-<% end %>
+    <div class="user-container">
+    <% number = 1%>
+    <div class="row">
+        <% @users.each do |u| %>
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <div class="card text-center">
+                <div class="cardbody">
+                    <h5 class="card-title font-weight-bold"><%= u.name %>さん</h5>
+                    <p class="text-muted">プロフィール No.<%= number %></p>
+                    <p><%= link_to 'ユーザーページへ', user_path(u.id) ,class:"btn btn-outline-danger btn-sm "%></p>
+                </div>
+            </div>
+        </div>
+        
+        <% number += 1 %>
+        <% end %>
+        </div>
+    </div>
+                
+                <% else %>
+                <%= link_to "SignUp", new_user_registration_path %>
+                <br>
+                <%= link_to "SignIn", new_user_session_path %>
+                <% end %>
+   </div>             
 
-<style>
-.signOutButton{
-    text-decoration:none;
-    display:inline-block;
-    border:3px solid royalblue;
-    background-color:aliceblue;
-    padding:5px;
-}
-.flex{
-    display:flex;
-    flex-wrap:wrap;    
-}
-.user-in{
-    display:block;
-    width:300px;
-    text-align:center;
-    border:1px solid darkgray;
-    background-color:gainsboro;
-    flex-shrink: 0;
-}
-</style>
+

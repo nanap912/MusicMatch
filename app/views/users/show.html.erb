@@ -1,46 +1,78 @@
-<h1>マイページ</h1>
 
-<p>名前：<%= @user.name %></p>
-<p>プロフィール画像:<%= image_tag @user.image_url, size: "250x200" if @user.image? %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
+<div class="mypage">
+<h1 class="mypage-title">マイページ</h1>
+    <div class="card w-50 mx-auto" id="mycard">
+        <p><%= image_tag @user.image_url, class:"rounded-circle",size: "250x200" if @user.image? %></p>
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold text-center"><%= @user.name %></h5>
+            <p class="card-text"> <%= @user.profile %></p>
 
-<div class="user-in">
-    <% if @user.id == current_user.id %>
-        <%= @msg %>
-    <% else %>
-        <% if @isRoom == true %>
-            <p><%= link_to 'DMへ', room_path(@roomId) %></p>
-        <% else %>
-            <%= form_for @room do |f| %>
-                <%= fields_for @entry do |e|%>
-                    <% e.hidden_field :user_id, value: @user.id %>
+            <div class="wakusennkesimasu">
+                <% if @user.id == current_user.id %>
+                <% else %>
+                    <% if @isRoom == true %>
+                        <p><%= link_to 'DMを開始する', room_path(@roomId) ,class:"btn btn-info btn-sm"%></p>
+                    <% else %>
+                        <%= form_for @room do |f| %>
+                            <%= fields_for @entry do |e|%>
+                                <% e.hidden_field :user_id, value: @user.id %>
+                            <% end %>
+                        <p><%= f.submit "DMを開始する",class:"btn btn-info btn-sm"%></p>
+                        <% end %>
+                    <% end %>
                 <% end %>
-            <%= f.submit "DMを開始する"%>
+            </div>
+            <%= link_to "ユーザー一覧", users_path,class:"btn btn-danger btn-sm" %>
+
+            <% if current_user.id == @user.id %>
+            <%= link_to "編集する", edit_user_registration_path,class:"btn btn-success btn-sm" %>
+            <%= link_to "投稿一覧に戻る", posts_path ,class:"btn btn-outline-info btn-sm"%>
             <% end %>
-        <% end %>
-    <% end %>
+        </div>
+    </div>
 </div>
-<%= link_to "ユーザー一覧に戻る", users_path %>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-  <%= link_to "投稿一覧に戻る", posts_path %>
-<% end %>
+<h2 class="userformtitle">ユーザーの投稿一覧</h2>
+<div class="userform">
+    <div class="row">
+        <% @user.posts.each do |t| %>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="card text-center border-secondary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-center"><%= t.title%></h5>
+                        <h5 class="card-title font-weight-bold text-center"><%= t.lyrictitle%></h5>
+                        <h5 class="card-title font-weight-bold text-center"><%= t.melodytitle%></h5>
+                        <h5 class="card-title font-weight-bold text-center"><%= t.songtitle%></h5>
+                        <h5 class="card-title font-weight-bold text-center"><%= t.movietitle%></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= t.matchuser%></h6>
+                        <div class="like">
+                            <% if user_signed_in? %>
+                            <% if current_user.already_liked?(t) %>
+                            <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                            <i class="far fa-star"></i><%= t.likes.count %>
+                            <% end %>
+                            <% else %>
+                            <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                                <i class="far fa-star"></i><%= t.likes.count %>
+                                <% end %>
+                                <% end %>
+                                <% else %>
+                                <i class="far fa-star"></i><%= t.likes.count %>
+                                <% end %>
+                        </div>
 
-<h2>ユーザーの投稿一覧</h2>
-<% @user.posts.each do |t| %>
-  <%= t.title %><%= t.lyrictitle%><%= t.melodytitle%><%= t.songtitle%><%= t.movietitle%><br>
-  <%= t.body %><%= t.lyricbody %><br>
-  <%=  video_tag t.video_url ,:controls => true if t.video?%><br>
-  <%= audio_tag t.audio_url, :controls => true if t.audio? %><br>
-  <%= t.created_at.to_s(:datetime_jp) %><br>
-<% end %>
-
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_posts.each do |t| %>
-    <%= t.user.name %><br>
-    <%= t.title %><br>
-    <%= t.body %><br>
-    <%= t.created_at.to_s(:datetime_jp) %><br>
-<% end %>
+                        <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <%= link_to "詳細へ", post_path(t.id),class:"btn btn-info btn-sm" %>
+                                <%= button_to "削除する", post_path(t.id), method: :delete,class:"btn btn-warning btn-sm" %>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"><%= t.created_at.to_s(:datetime_jp) %></small>
+                        </div>
+                    </div>
+                </div>     
+            </div>
+        <% end %>
+    </div>
+</div>

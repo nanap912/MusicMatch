@@ -1,33 +1,44 @@
 
-<h1 class="category-lyrics">歌詞</h1>
+<h1 class="category-lyrics"><span class="marker3">歌詞</span></h1>
 <div class="posts-container">
+  <div class="row">
     <% @lyrics.each do |t| %>
-      <div class="post">
-      【タイトル】<%= t.lyrictitle%><br>
-      【歌詞】<%= t.lyricbody.truncate(30) %><br>
-          <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
-        
-      <% if user_signed_in? %>
-          <% if current_user.already_liked?(t) %>
-              <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card text-center border-secondary mb-3">
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold text-center"><%= t. lyrictitle%></h5>
+            <a href="/users/ <%= t.user.id %>">投稿者：<%= t.user.name %></a>
+            <div class="like">
+              <% if user_signed_in? %>
+                <% if current_user.already_liked?(t) %>
+                <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
                 <i class="far fa-star"></i><%= t.likes.count %>
               <% end %>
-          <% else %>
-              <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+              <% else %>
+                <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
                 <i class="far fa-star"></i><%= t.likes.count %>
               <% end %>
-          <% end %>
-        <% else %>
-        <i class="far fa-star"></i><%= t.likes.count %>
-      <% end %>
-          <%= t.created_at.to_s(:datetime_jp) %>
-          <%= link_to "詳細へ", post_path(t.id) %>
-          <%= link_to "編集する", edit_post_path(t.id) %>
-          <%= button_to "削除する", post_path(t.id), method: :delete %>
+              <% end %>
+              <% else %>
+                <i class="far fa-star"></i><%= t.likes.count %>
+              <% end %>
+              </div>
+
+                <p class="card-text"><%= t.lyricbody.truncate(100)%></p>
+              <div class="btn-toolbar">
+                <div class="btn-group">
+                  <%= link_to "詳細へ", post_path(t.id),class:"btn btn-info btn-sm" %>
+                  <%= button_to "削除する", post_path(t.id), method: :delete,class:"btn btn-warning btn-sm" %>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted"><%= t.created_at.to_s(:datetime_jp) %></small>
+              </div>
+          </div>
+        </div>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
-<footer>
-  <small>© 2020 石田七海</small>
-</footer>
+      
