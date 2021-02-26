@@ -20,7 +20,7 @@
   @include title-k
 }
   .marker {
-    background:linear-gradient(transparent 50%,#ffbf7f);
+    background:linear-gradient(transparent 50%,#ffbf7f 50%);
     @include title-marker
 }
 
@@ -246,7 +246,7 @@ margin: auto
   @include title-k;
 }
 .marker7{
-  background:linear-gradient(transparent 50%,deepskyblue);
+  background:linear-gradient(transparent 50%,deepskyblue 50%);
   @include title-marker;
 }
 //投稿編集
@@ -254,6 +254,6 @@ margin: auto
   @include title-k;
 }
 .marker8{
-  background:linear-gradient(transparent 50%,mediumaquamarine);
+  background:linear-gradient(transparent 50%,mediumaquamarine) 50%;
   @include title-marker;
 }

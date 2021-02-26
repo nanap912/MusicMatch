@@ -5,6 +5,7 @@
   <div class="card-body">
     <h5 class="card-title font-weight-bold text-center"><%= @post.title %></h5>
     <p class="card-subtitle mb-2 text-muted">マッチングしたユーザー:<%= @post.matchuser%></p>
+    <a href="/users/ <%= @post.user.id %>">投稿者：<%= @post.user.name %></a>
     <div class="file">
       <%= audio_tag @post.audio_url, :controls => true if @post.audio? %>
       <%=  video_tag @post.video_url ,height: "55%", width: "55%",:controls => true if @post.video?%>
@@ -41,6 +42,7 @@
 <div class="card text-center w-75 mx-auto border-secondary mb-3">
   <div class="card-body">
     <h5 class="card-title font-weight-bold text-center"><%= @post.lyrictitle %></h5>
+    <a href="/users/ <%= @post.user.id %>">投稿者：<%= @post.user.name %></a>
     <p class="card-text"><%= @post.lyricbody %></p>
 
     <div class="like">
@@ -73,6 +75,7 @@
 <div class="card text-center w-75 mx-auto border-secondary mb-3">
   <div class="card-body">
     <h5 class="card-title font-weight-bold text-center"><%= @post.melodytitle %></h5>
+    <a href="/users/ <%= @post.user.id %>">投稿者：<%= @post.user.name %></a>
     <div class="file">
       <%= audio_tag @post.audio_url, :controls => true if @post.audio? %>
     </div>
@@ -107,6 +110,7 @@
 <div class="card text-center w-75 mx-auto border-secondary mb-3">
   <div class="card-body">
     <h5 class="card-title font-weight-bold text-center"><%= @post.songtitle %></h5>
+    <a href="/users/ <%= @post.user.id %>">投稿者：<%= @post.user.name %></a>
     <div class="file">
       <%= audio_tag @post.audio_url, :controls => true if @post.audio? %>
     </div>
@@ -141,6 +145,7 @@
 <div class="card text-center w-75 mx-auto border-secondary mb-3">
   <div class="card-body">
     <h5 class="card-title font-weight-bold text-center"><%= @post.movietitle %></h5>
+    <a href="/users/ <%= @post.user.id %>">投稿者：<%= @post.user.name %></a>
     <div class="file">
       <%=  video_tag @post.video_url ,height: "55%", width: "55%",:controls => true if @post.video?%>
     </div>
