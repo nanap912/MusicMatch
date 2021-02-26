@@ -103,7 +103,7 @@
   @include title-k;
 }
 .marker4{
-  background:linear-gradient(transparent 50%,#bfff7f) 50%;
+  background:linear-gradient(transparent 50%,#bfff7f 50%);
   @include title-marker;
 }
 //歌声一覧
@@ -111,7 +111,7 @@
   @include title-k;
 }
 .marker5{
-  background:linear-gradient(transparent 50%,#ce9eff) 50%;
+  background:linear-gradient(transparent 50%,#ce9eff 50%);
   @include title-marker;
 }
 //映像一覧
