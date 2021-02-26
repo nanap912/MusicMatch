@@ -15,7 +15,6 @@
   text-align: center;
   font-family:'ヒラギノ丸ゴ ProN';
   font-weight:bold;
-  border-radius:10px;
 }
 .ranktitle{
   @include title-k
@@ -88,7 +87,7 @@
   @include title-k;
 }
 .marker2{
-  background:linear-gradient(transparent 50%,#ff7f7f );
+  background:linear-gradient(transparent 50%,#ff7f7f 50%);
   @include title-marker;
 }
   //歌詞一覧
@@ -96,7 +95,7 @@
   @include title-k;
 }
 .marker3{
-  background:linear-gradient(transparent 50%,#1e90ff);
+  background:linear-gradient(transparent 50%,#1e90ff 50%);
   @include title-marker;
 }
 //曲一覧
@@ -104,7 +103,7 @@
   @include title-k;
 }
 .marker4{
-  background:linear-gradient(transparent 50%,#bfff7f);
+  background:linear-gradient(transparent 50%,#bfff7f) 50%;
   @include title-marker;
 }
 //歌声一覧
@@ -112,7 +111,7 @@
   @include title-k;
 }
 .marker5{
-  background:linear-gradient(transparent 50%,#ce9eff);
+  background:linear-gradient(transparent 50%,#ce9eff) 50%;
   @include title-marker;
 }
 //映像一覧
@@ -120,7 +119,7 @@
   @include title-k;
 }
 .marker6{
-  background:linear-gradient(transparent 50%,#ffdc00);
+  background:linear-gradient(transparent 50%,#ffdc00 50%);
   @include title-marker;
 }
 //マッチング投稿ページ
