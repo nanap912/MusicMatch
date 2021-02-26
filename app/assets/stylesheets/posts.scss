@@ -254,6 +254,6 @@ margin: auto
   @include title-k;
 }
 .marker8{
-  background:linear-gradient(transparent 50%,mediumaquamarine) 50%;
+  background:linear-gradient(transparent 50%,mediumaquamarine 50%);
   @include title-marker;
 }
